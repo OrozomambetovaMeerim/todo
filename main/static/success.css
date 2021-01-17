@@ -1,0 +1,16 @@
+
+.text {
+    padding-top: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-wrapper{
+    height: 100px;
+    width: 550px;
+    position: relative;
+    text-align: center;
+    color: white;
+}
