@@ -8,8 +8,6 @@
 <body>
    <h3>Books</h3> 
    {% for books in books_list %}
-       <h2>{{ books.title }}</h2>
-       <h2>{{ books.author }}</h2>
-       <h2>{{ books.year }}</h2>
+       <h2>{{ books.title }} - {{ books.author }} - {{ books.year }}</h2>
    {% endfor %}
 </html>
