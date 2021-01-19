@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,45 @@
     <title>Bookstore</title>
 </head>
 <body>
-   <h3>Books</h3> 
+    <section>
+
+        <div class="create_container">
+            <form action="{% url 'add-books' %}" method="POST">
+            {% csrf_token %}
+            <input
+                class="create_input"
+                type="text"
+                placeholder="Напишите сюда новую задачу"
+                name="books_text"
+                />
+                <button class="create_button">Добавить</button>
+            </form>
+        </div>
+
+        <div class="books_container">
+
+            {% for books in books_list %}
+            <div class="books_item">
+                <div class="books_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{ books.title }}</h4>
+                </div>
+                <div class="books_item_footer">
+                    <p>{{ books.author }}</p>
+                    <div class="action_buttons">
+                        <img src="{% static './icons/Star-1.png' %}" />
+                        <img src="{% static './icons/Карзина.png' %}" />
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+   <!-- <h3>Books</h3> 
    {% for books in books_list %}
        <h2>{{ books.title }} - {{ books.author }} - {{ books.year }}</h2>
-   {% endfor %}
+   {% endfor %} -->
 </html>

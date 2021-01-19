@@ -30,3 +30,10 @@ def add_todo(request):
     todo = ToDo(text=text)
     todo.save()
     return redirect(test)
+
+def add_books(request):
+    form = request.POST
+    text = form["books_text"]
+    books = Books(title=text)
+    books.save()
+    return redirect(books)
