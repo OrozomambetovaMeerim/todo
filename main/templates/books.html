@@ -1,11 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookstore</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bookstore</title>
+        <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+        <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}" />
+    </head>
 <body>
     <section>
 
@@ -35,6 +37,7 @@
                 </div>
                 <div class="books_item_footer">
                     <p>{{ books.author }}</p>
+                    <p>{{ books.description }}</p>
                     <div class="action_buttons">
                         <img src="{% static './icons/Star-1.png' %}" />
                         <img src="{% static './icons/Карзина.png' %}" />
@@ -44,8 +47,4 @@
             {% endfor %}
         </div>
     </section>
-   <!-- <h3>Books</h3> 
-   {% for books in books_list %}
-       <h2>{{ books.title }} - {{ books.author }} - {{ books.year }}</h2>
-   {% endfor %} -->
 </html>

@@ -23,6 +23,15 @@ def second(request):
 def third(request):
     return HttpResponse("This is page test3")
 
+def add(request):
+    return render(request, "add.html")
+
+def success(request):
+    return render(request, "success.html")
+
+def delete(request):
+    return render(request, "delete.html")
+
 
 def add_todo(request):
     form = request.POST
@@ -37,3 +46,8 @@ def add_books(request):
     books = Books(title=text)
     books.save()
     return redirect(books)
+
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
