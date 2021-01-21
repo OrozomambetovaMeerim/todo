@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bookstore</title>
-        <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+        <link rel="stylesheet" href="{% static 'styles/books.css' %}" />
         <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}" />
     </head>
 <body>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="books_item_footer">
                     <p>{{ books.author }}</p>
-                    <p>{{ books.description }}</p>
+                    <p>{{ books.year }}</p>
                     <div class="action_buttons">
                         <img src="{% static './icons/Star-1.png' %}" />
                         <img src="{% static './icons/Карзина.png' %}" />
