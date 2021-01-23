@@ -11,7 +11,7 @@ class ToDo(models.Model):
 class Books(models.Model):
     title = models.CharField(max_length = 100)
     subtitle = models.CharField(max_length=100)
-    description = models.CharField(max_length=400)
+    description = models.TextField(max_length=400)
     price = models.IntegerField()
     author = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)

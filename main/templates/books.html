@@ -4,47 +4,62 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bookstore</title>
-        <link rel="stylesheet" href="{% static 'styles/books.css' %}" />
-        <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}" />
+        <title>Книжный магазин</title>
+     
+        <link rel="stylesheet" href="{% static '/books.css' %}" /> 
+        <!-- <link rel="stylesheet" href="./static/books.css" />  -->
     </head>
 <body>
-    <section>
-
-        <div class="create_container">
-            <form action="{% url 'add-books' %}" method="POST">
-            {% csrf_token %}
-            <input
-                class="create_input"
-                type="text"
-                placeholder="Напишите сюда новую задачу"
-                name="books_text"
-                />
-                <button class="create_button">Добавить</button>
-            </form>
+    <form action="{% url 'add-books' %}" method="POST">
+        {% csrf_token %}
+        <h1>О книге</h1>
+        <div class="group">
+            <label for="">Заголовок:</label>
+            <input type="text">
         </div>
-
-        <div class="books_container">
-
-            {% for books in books_list %}
-            <div class="books_item">
-                <div class="books_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox" />
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>{{ books.title }}</h4>
-                </div>
-                <div class="books_item_footer">
-                    <p>{{ books.author }}</p>
-                    <p>{{ books.year }}</p>
-                    <div class="action_buttons">
-                        <img src="{% static './icons/Star-1.png' %}" />
-                        <img src="{% static './icons/Карзина.png' %}" />
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+        <div class="group">
+            <label for="">Подзаголовок:</label>
+            <input type="text">
         </div>
-    </section>
+        <div class="group">
+            <label for="">Описание:</label>
+            <input type="text">
+        </div>
+        <div class="group">
+            <label for="">Цена:</label>
+            <input type="text">
+        </div>
+        <div class="group">
+            <label for="">Жанр:</label>
+            <input type="text">
+        </div>
+        <div class="group">
+            <label for="">Автор:</label>
+            <input type="text">
+        </div>
+        <div class="group">
+            <label for="">Год выхода книги:</label>
+            <input type="datetime">
+        </div>
+        <div class="group">
+            <label for="">Добавление книги на сайт:</label>
+            <input type="datetime">
+        </div>
+        <div class="group1">
+                <button>Сохранить</button>
+                <button>Удалить</button>
+                <button>Избранное</button>
+        </div>
+    </form>
+    {% for books in books_list %}
+        <div>
+            <h4>{{ books.title }}</h4>
+            <h3>{{ books.author }}</h3>
+            <h3>{{ books.year }}</h3>
+        </div>
+    {% endfor %}
+</body>
 </html>
+
+
+
