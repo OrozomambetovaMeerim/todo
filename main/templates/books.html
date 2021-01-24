@@ -11,52 +11,64 @@
     </head>
 <body>
     <form action="{% url 'add-books' %}" method="POST">
-        {% csrf_token %}
-        <h1>О книге</h1>
+    {% csrf_token %}
+    <h1>Добавить книгу</h1>
+        
         <div class="group">
-            <label for="">Заголовок:</label>
-            <input type="text">
-        </div>
+             <label for="">Заголовок:</label>
+             <input type="text" name="title">
+         </div>
+    
+
         <div class="group">
             <label for="">Подзаголовок:</label>
-            <input type="text">
-        </div>
+            <input type="text" name="subtitle">
+         </div>
+      
         <div class="group">
             <label for="">Описание:</label>
-            <input type="text">
+            <input type="text" name="description">
         </div>
+        
+       
         <div class="group">
             <label for="">Цена:</label>
-            <input type="text">
+            <input type="text" name="price">
         </div>
+        
         <div class="group">
             <label for="">Жанр:</label>
-            <input type="text">
+            <input type="text" name="genre">
         </div>
+       
         <div class="group">
             <label for="">Автор:</label>
-            <input type="text">
+             <input type="text" name="author">
         </div>
+    
         <div class="group">
             <label for="">Год выхода книги:</label>
-            <input type="datetime">
-        </div>
+            <input type="datetime" name="year">
+        </div> 
+      
         <div class="group">
             <label for="">Добавление книги на сайт:</label>
-            <input type="datetime">
+            <input type="datetime" name="date">
         </div>
+       
         <div class="group1">
-                <button>Сохранить</button>
-                <button>Удалить</button>
-                <button>Избранное</button>
+            <button>Сохранить</button>
+            <button>Удалить</button>
+            <button>Избранное</button>
         </div>
     </form>
     {% for books in books_list %}
         <div>
-            <h4>{{ books.title }}</h4>
+            <h2>{{ books.title }}</h2>
             <h3>{{ books.author }}</h3>
             <h3>{{ books.year }}</h3>
         </div>
+        <hr>
     {% endfor %}
 </body>
 </html>
